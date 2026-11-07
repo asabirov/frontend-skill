@@ -1,9 +1,9 @@
 ---
 name: frontend
-description: "Rules for front-end code: layout code that holds at every width, keyboard focus and reduced motion in CSS and scripts, CSS specificity, component state, and browser tests and screenshots. Use when building, changing, reviewing or fixing front-end code. Not for how a screen looks, which the `design` skill covers, and not for server-side code."
+description: "Rules for front-end code: layout code that holds at every width, keyboard focus and reduced motion in CSS and scripts, CSS specificity, component state, and browser tests and screenshots. Use when building, changing, reviewing or fixing front-end code. Not for how a screen looks, and not for server-side code."
 license: Apache-2.0. Complete terms in LICENSE.
 metadata:
-  version: "0.1.0"
+  version: "0.1.1"
 ---
 
 # Frontend
@@ -15,7 +15,7 @@ Use only the rules that fit the change. Keep existing code in place unless restr
 Build to this floor in each change without announcing it.
 
 1. **Layout holds at every width.** Use flex, grid, `min()`, `max()` and `clamp()`. Do not give a page column or a container a fixed pixel width. The page body never scrolls sideways.
-2. **Measure narrow widths on the real served page.** A test column or a story frame can be wider than the app shell, so the page can still overflow. ([source](https://github.com/asabirov/frontend-skill/issues/1))
+2. **Measure narrow widths on the real served page.** A test column or a story frame can be wider than the app shell, so the page can still overflow.
 3. **Keyboard focus works.** Show focus with `:focus-visible`. Never remove an outline without a replacement. Keep the tab order the same as the reading order.
 4. **Motion obeys `prefers-reduced-motion`.** Put nonessential CSS motion inside `@media (prefers-reduced-motion: no-preference)`. A script reads `matchMedia("(prefers-reduced-motion: reduce)")` before it starts an animation.
 5. **Content is accessible to assistive technology.** Give each control an accessible name. Use landmarks and one `h1` for each page. Give an image an `alt` text, or `alt=""` when it is decoration.
@@ -36,10 +36,6 @@ Build to this floor in each change without announcing it.
 ## Browser tests and screenshots
 
 13. **Find elements as a person does.** Use the role and the accessible name, then the label or text. Use a test id only when nothing else is stable.
-14. **Set the time zone of each browser test.** Set `timezoneId` in the browser context and build dates with `Date.UTC`. Use `"UTC"` by default. If the test checks local dates or a daylight-saving change, use the zone that the behaviour needs. A test without a set zone uses the developer's zone, so its result changes. ([source](https://github.com/asabirov/amberstone/pull/2955))
-15. **Take screenshots only from the served page after a fresh build.** Never take them from a stale static folder. Old files show a screen that the code no longer makes. ([source](https://github.com/asabirov/frontend-skill/issues/1))
+14. **Set the time zone of each browser test.** Set `timezoneId` in the browser context and build dates with `Date.UTC`. Use `"UTC"` by default. If the test checks local dates or a daylight-saving change, use the zone that the behaviour needs. A test without a set zone uses the developer's zone, so its result changes.
+15. **Take screenshots only from the served page after a fresh build.** Never take them from a stale static folder. Old files show a screen that the code no longer makes.
 16. **Wait for a condition, not a time.** Wait for an element, a response or a state. Do not sleep for a fixed time.
-
-## Attribution
-
-Rules 1, 3, 4, 5 and 6 adapt the quality floor and the CSS specificity advice of the `frontend-design` skill in [anthropics/skills](https://github.com/anthropics/skills/tree/41bbe19d1a1a7eaab5e7bb9050a417e5c6cffc8f/skills/frontend-design), under the Apache License 2.0. This file changes and extends that text.
