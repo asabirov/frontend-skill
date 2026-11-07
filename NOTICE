@@ -1,0 +1,6 @@
+frontend skill
+
+This skill adapts part of the frontend-design skill from anthropics/skills
+(https://github.com/anthropics/skills), commit
+41bbe19d1a1a7eaab5e7bb9050a417e5c6cffc8f, licensed under the Apache License 2.0.
+SKILL.md changes and extends the adapted text. See the Attribution section of SKILL.md.
