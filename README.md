@@ -22,7 +22,7 @@ Before the first release, each rule was compared with the other installed skills
 
 | Skill | What it covers | How this skill stays apart |
 | --- | --- | --- |
-| `design` | How a screen looks: reflow at narrow widths, visible focus, reduced motion, states to render | This skill says how code delivers those results, such as `:focus-visible` and the reduced-motion media query. It says nothing about the look. |
+| `design` | How a screen looks: reflow at narrow widths, visible focus, reduced motion, states to render, design tokens and native controls | This skill says how code delivers those results, such as `:focus-visible` and the reduced-motion media query. It leaves tokens and native controls to `design`, and says nothing about the look. |
 | `backend-architecture` | Server modules, API contracts, permission checks | This skill covers browser code only. |
 | `code-smells` | Code size, complexity, duplication and imports | This skill sets no size or duplication limit. |
 | `agent-browser` | How to drive a browser and take a screenshot | This skill says which page to capture, not how. |
