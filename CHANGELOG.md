@@ -1,5 +1,11 @@
 # Changelog
 
+## 0.1.1 — 2026-11-07
+
+### Changed
+
+- **The skill stands alone.** The description and the body name no other skill and link to no issue or pull request. The attribution of the adapted text moved to `NOTICE`.
+
 ## 0.1.0 — 2026-11-07
 
 The frontend skill gives an agent rules for front-end code when it builds, changes, reviews or fixes a web front end.
