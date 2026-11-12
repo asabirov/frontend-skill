@@ -4,7 +4,7 @@ An agent skill with rules for front-end code. The agent reads it when it builds,
 
 ## Why it exists
 
-The owner wants a robust front-end architecture and code. Agents that build screens make the same code mistakes again: layouts that overflow on a phone, removed focus outlines, CSS rules that cancel each other out, browser tests that depend on the local time zone, and screenshots of an old build. This skill holds the short rules that prevent them.
+The owner wants a robust front-end architecture and code. Agents that build screens make the same code mistakes again: layouts that overflow on a phone, removed focus outlines, CSS rules that cancel each other out, browser tests that depend on the local time zone, screenshots of an old build, and lockfiles that a different npm rewrites. This skill holds the short rules that prevent them.
 
 The skill covers code only. How a screen looks comes from a visual brief or an approved design, which another skill or a person supplies. The skill states no visual rule, so the two cannot conflict.
 

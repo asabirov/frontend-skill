@@ -1,9 +1,9 @@
 ---
 name: frontend
-description: "Rules for front-end code: layout code that holds at every width, keyboard focus and reduced motion in CSS and scripts, CSS specificity, component state, and browser tests and screenshots. Use when building, changing, reviewing or fixing front-end code. Not for how a screen looks, and not for server-side code."
+description: "Rules for front-end code: layout code that holds at every width, keyboard focus and reduced motion in CSS and scripts, CSS specificity, component state, browser tests and screenshots, and installs from a frozen lockfile with a pinned package manager. Use when building, changing, reviewing or fixing front-end code. Not for how a screen looks, and not for server-side code."
 license: Apache-2.0. Complete terms in LICENSE.
 metadata:
-  version: "0.1.1"
+  version: "0.2.0"
 ---
 
 # Frontend
@@ -39,3 +39,9 @@ Build to this floor in each change without announcing it.
 14. **Set the time zone of each browser test.** Set `timezoneId` in the browser context and build dates with `Date.UTC`. Use `"UTC"` by default. If the test checks local dates or a daylight-saving change, use the zone that the behaviour needs. A test without a set zone uses the developer's zone, so its result changes.
 15. **Take screenshots only from the served page after a fresh build.** Never take them from a stale static folder. Old files show a screen that the code no longer makes.
 16. **Wait for a condition, not a time.** Wait for an element, a response or a state. Do not sleep for a fixed time.
+
+## Install
+
+17. **Commit the lockfile.** Keep the lockfile of the package manager in the repository. Never delete it to fix an install.
+18. **Install from the lockfile only.** In an agent session and in CI, install with `npm ci`, or with the frozen-lockfile form of the package manager, such as `pnpm install --frozen-lockfile` or `yarn install --immutable`. These commands stop when the lockfile and `package.json` disagree. Change the lockfile only in a change that adds, removes or updates a dependency.
+19. **Pin the package manager and Node.** Set the package manager and its version in the `packageManager` field of `package.json`, such as `"packageManager": "npm@10.9.2"`. Set the Node version in `engines`. Set `engine-strict=true` in `.npmrc`, so that an install with a wrong Node version stops.

@@ -1,5 +1,11 @@
 # Changelog
 
+## 0.2.0 — 2026-11-12
+
+### Added
+
+- **Install rules.** The agent commits the lockfile and installs with `npm ci` or the frozen-lockfile form of the package manager. The agent pins the package manager in `packageManager`, pins Node in `engines` and sets `engine-strict=true` in `.npmrc`. These installs do not write the lockfile, so a different npm on the `PATH` cannot rewrite it.
+
 ## 0.1.1 — 2026-11-07
 
 ### Changed
