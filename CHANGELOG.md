@@ -1,5 +1,11 @@
 # Changelog
 
+## 0.2.1 — 2026-11-18
+
+### Changed
+
+- **New name of the back-end skill.** The overlap table in `README.md` names `backend` in place of `backend-architecture`. The rules of this skill do not change.
+
 ## 0.2.0 — 2026-11-12
 
 ### Added
