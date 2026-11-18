@@ -3,7 +3,7 @@ name: frontend
 description: "Rules for front-end code: layout code that holds at every width, keyboard focus and reduced motion in CSS and scripts, CSS specificity, component state, browser tests and screenshots, and installs from a frozen lockfile with a pinned package manager. Use when building, changing, reviewing or fixing front-end code. Not for how a screen looks, and not for server-side code."
 license: Apache-2.0. Complete terms in LICENSE.
 metadata:
-  version: "0.2.0"
+  version: "0.2.1"
 ---
 
 # Frontend
