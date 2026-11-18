@@ -9,15 +9,24 @@ An agent skill with rules for front-end code. The agent reads it when it builds,
 
 ## Install
 
+Install the latest version:
+
 ```sh
-DO_NOT_TRACK=1 npx skills add https://github.com/asabirov/frontend-skill/tree/v0.2.0 --skill frontend --agent claude-code codex --global
+DO_NOT_TRACK=1 npx skills add https://github.com/asabirov/frontend-skill --skill frontend --agent claude-code codex --global
 ```
+
+Update it later:
+
+```sh
+DO_NOT_TRACK=1 npx skills update frontend --global
+```
+
+`DO_NOT_TRACK=1` turns off the telemetry of the skills CLI. The CLI needs Node.js, npm and Git.
 
 Then ask your agent to build or fix a screen.
 
 | To | Do |
 | --- | --- |
-| Update or roll back | Run the install command with another release tag |
 | Remove | `DO_NOT_TRACK=1 npx skills remove frontend --agent claude-code codex --global` |
 | Turn off the skills CLI telemetry | Keep `DO_NOT_TRACK=1` |
 
