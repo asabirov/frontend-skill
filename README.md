@@ -1,65 +1,62 @@
 # frontend-skill
 
+[![Release](https://img.shields.io/github/v/release/asabirov/frontend-skill)](https://github.com/asabirov/frontend-skill/releases)
+[![Licence](https://img.shields.io/github/license/asabirov/frontend-skill)](LICENSE)
+
 An agent skill with rules for front-end code. The agent reads it when it builds, changes, reviews or fixes a web front end.
 
-## Why it exists
+![A front-end task reaches the agent. A visual brief or approved design sets how the screen looks. The 19 rules in SKILL.md set how the code delivers it.](assets/how-it-works.png)
 
-Agents that build screens make the same code mistakes again: layouts that overflow on a phone, removed focus outlines, CSS rules that cancel each other out, browser tests that depend on the local time zone, screenshots of an old build, and lockfiles that a different npm rewrites. This skill holds the short rules that prevent them.
-
-The skill covers code only. How a screen looks comes from a visual brief or an approved design, which another skill or a person supplies. The skill states no visual rule, so the two cannot conflict.
-
-**What it turned down:**
-
-| Candidate | Why not |
-| --- | --- |
-| Copying the whole upstream `frontend-design` skill | Most of it is visual direction. A visual skill already covers that. |
-| A framework or a stack choice | The rules must hold in React, Svelte, Vue and plain HTML. |
-| Size, complexity and duplication limits | A code-size check already holds them. |
-
-## Overlap check
-
-Before the first release, each rule was compared with the other installed skills that touch front-end work. No rule conflicts with or repeats one of their rules.
-
-| Skill | What it covers | How this skill stays apart |
-| --- | --- | --- |
-| `design` | How a screen looks: reflow at narrow widths, visible focus, reduced motion, states to render, design tokens and native controls | This skill says how code delivers those results, such as `:focus-visible` and the reduced-motion media query. It leaves tokens and native controls to `design`, and says nothing about the look. |
-| `backend-architecture` | Server modules, API contracts, permission checks | This skill covers browser code only. |
-| `code-smells` | Code size, complexity, duplication and imports | This skill sets no size or duplication limit. |
-| `agent-browser` | How to drive a browser and take a screenshot | This skill says which page to capture, not how. |
-| `run` | How to start the app | This skill only requires a fresh build before a screenshot. |
-
-## What's where
-
-| Path | What it holds |
-| --- | --- |
-| `SKILL.md` | The rules the agent reads. |
-| `README.md` | This page, for people. |
-| `CHANGELOG.md` | What changed in each version. |
-| `LICENSE` | The Apache License 2.0. |
-| `NOTICE` | The attribution for the adapted upstream text. |
-
-## Version
-
-The version source is the quoted `metadata.version` in the frontmatter of `SKILL.md`. Each release has a `vMAJOR.MINOR.PATCH` tag and a GitHub release that match it.
-
-## Install, update, roll back and remove
+## Install
 
 ```sh
 DO_NOT_TRACK=1 npx skills add https://github.com/asabirov/frontend-skill/tree/v0.2.0 --skill frontend --agent claude-code codex --global
 ```
 
-`DO_NOT_TRACK=1` turns off the telemetry of the skills CLI. To update or roll back, run the command again with another release tag. To remove the skill:
+Then ask your agent to build or fix a screen.
 
-```sh
-DO_NOT_TRACK=1 npx skills remove frontend --agent claude-code codex --global
-```
+| To | Do |
+| --- | --- |
+| Update or roll back | Run the install command with another release tag |
+| Remove | `DO_NOT_TRACK=1 npx skills remove frontend --agent claude-code codex --global` |
+| Turn off the skills CLI telemetry | Keep `DO_NOT_TRACK=1` |
 
 | Dependency | Needed for |
 | --- | --- |
 | Node.js 22.20 or later, npm and Git | Running the install command |
 | An agent that reads Agent Skills | Loading `SKILL.md` |
 
-Then ask your agent to build or fix a screen. The agent reads the rules when the task is front-end code.
+## What it prevents
+
+| Mistake that agents repeat | Rule |
+| --- | --- |
+| Layouts that overflow on a phone | 1, 2 |
+| Removed focus outlines | 3 |
+| CSS rules that cancel each other out | 6 |
+| Browser tests that depend on the local time zone | 14 |
+| Screenshots of an old build | 15 |
+| Lockfiles that a different npm rewrites | 18, 19 |
+
+## What it turned down
+
+| Candidate | Why not |
+| --- | --- |
+| Visual rules | A visual brief or an approved design sets the look, so the two cannot conflict |
+| Copying the whole upstream `frontend-design` skill | Most of it is visual direction, and a visual skill covers that |
+| A framework or a stack choice | The rules must hold in React, Svelte, Vue and plain HTML |
+| Size, complexity and duplication limits | A code-size check holds them |
+
+## Other skills
+
+Before the first release, each rule was compared with these skills. No rule conflicts with or repeats one of theirs.
+
+| Skill | It covers | This skill |
+| --- | --- | --- |
+| `design` | The look: reflow at narrow widths, visible focus, reduced motion, states to render, design tokens, native controls | How code delivers those results, such as `:focus-visible` and the reduced-motion media query. No tokens or native controls |
+| `backend-architecture` | Server modules, API contracts, permission checks | Browser code only |
+| `code-smells` | Code size, complexity, duplication, imports | No size or duplication limit |
+| `agent-browser` | How to drive a browser and take a screenshot | Which page to capture |
+| `run` | How to start the app | A fresh build before a screenshot |
 
 ## Licence
 
