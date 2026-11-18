@@ -1,0 +1,41 @@
+direction: right
+(** -> **)[*].style.stroke: "#57606A"
+(** <-> **)[*].style.stroke: "#57606A"
+(** -> **)[*].style.font-size: 24
+(** <-> **)[*].style.font-size: 24
+**.style.font-size: 28
+
+title: "frontend skill" {
+  near: top-left
+  shape: text
+  style: {font-size: 40; bold: true; font-color: "#1F2328"}
+}
+
+classes: {
+  outside: {style: {fill: "#ECEAE4"; stroke: "#6B675F"; font-color: "#1F2328"}}
+  way-in: {style: {fill: "#DCEAF7"; stroke: "#2F6596"; font-color: "#1F2328"}}
+  core: {style: {fill: "#DDF0E4"; stroke: "#2E7350"; font-color: "#1F2328"}}
+  records: {style: {fill: "#F8EBCB"; stroke: "#8F6A12"; font-color: "#1F2328"}}
+  group: {style: {fill: "#FAFAF8"; stroke: "#8C959F"; font-color: "#1F2328"}}
+}
+
+task: Front-end\ntask {class: outside}
+design: Visual brief or\napproved design {class: outside}
+
+rules: 19 rules in SKILL.md {
+  class: group
+  grid-columns: 2
+  floor: Quality floor\nrules 1 to 5 {class: core}
+  css: CSS specificity\nrules 6 to 8 {class: core}
+  state: Components and state\nrules 9 to 12 {class: core}
+  tests: Browser tests and\nscreenshots\nrules 13 to 16 {class: core}
+  install: Install\nrules 17 to 19 {class: core}
+}
+
+agent: Agent {class: way-in}
+code: Front-end\ncode {class: records}
+
+task -> agent
+design -> agent: how the\nscreen looks
+rules -> agent: how the code\ndelivers it
+agent -> code
