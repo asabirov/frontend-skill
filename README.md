@@ -4,7 +4,7 @@ An agent skill with rules for front-end code. The agent reads it when it builds,
 
 ## Why it exists
 
-The owner wants a robust front-end architecture and code. Agents that build screens make the same code mistakes again: layouts that overflow on a phone, removed focus outlines, CSS rules that cancel each other out, browser tests that depend on the local time zone, screenshots of an old build, and lockfiles that a different npm rewrites. This skill holds the short rules that prevent them.
+Agents that build screens make the same code mistakes again: layouts that overflow on a phone, removed focus outlines, CSS rules that cancel each other out, browser tests that depend on the local time zone, screenshots of an old build, and lockfiles that a different npm rewrites. This skill holds the short rules that prevent them.
 
 The skill covers code only. How a screen looks comes from a visual brief or an approved design, which another skill or a person supplies. The skill states no visual rule, so the two cannot conflict.
 
@@ -44,14 +44,22 @@ The version source is the quoted `metadata.version` in the frontmatter of `SKILL
 
 ## Install, update, roll back and remove
 
-This repository is private. The owner's configuration repository installs it as a Git submodule at `skills/frontend`, with the authenticated URL `https://github.com/asabirov/frontend-skill.git`. A configuration pull request adds or moves the pin, and only to a released tag commit.
+```sh
+DO_NOT_TRACK=1 npx skills add https://github.com/asabirov/frontend-skill/tree/v0.2.0 --skill frontend --agent claude-code codex --global
+```
 
-- **Install.** Add the submodule in a configuration pull request. Pin it to a released tag commit. Then run `git submodule update --init --recursive`.
-- **Update.** In a configuration pull request, move the pin to the commit of the new tag. Keep the old commit in the pull request text.
-- **Roll back.** Move the pin back to the old commit in a configuration pull request.
-- **Remove.** Remove the submodule with `git rm skills/frontend` in a configuration pull request.
+`DO_NOT_TRACK=1` turns off the telemetry of the skills CLI. To update or roll back, run the command again with another release tag. To remove the skill:
 
-After each change, check the installed commit with `git -C skills/frontend rev-parse HEAD`. It must be the tag commit.
+```sh
+DO_NOT_TRACK=1 npx skills remove frontend --agent claude-code codex --global
+```
+
+| Dependency | Needed for |
+| --- | --- |
+| Node.js 22.20 or later, npm and Git | Running the install command |
+| An agent that reads Agent Skills | Loading `SKILL.md` |
+
+Then ask your agent to build or fix a screen. The agent reads the rules when the task is front-end code.
 
 ## Licence
 
