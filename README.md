@@ -12,7 +12,7 @@ An agent skill with rules for front-end code. The agent reads it when it builds,
 Install the latest version:
 
 ```sh
-DO_NOT_TRACK=1 npx skills add https://github.com/asabirov/frontend-skill --skill frontend --agent claude-code codex --global
+DO_NOT_TRACK=1 npx skills add https://github.com/asabirov/frontend-skill --skill frontend --agent claude-code codex --global -y
 ```
 
 Update it later:
@@ -27,7 +27,7 @@ Then ask your agent to build or fix a screen.
 
 | To | Do |
 | --- | --- |
-| Remove | `DO_NOT_TRACK=1 npx skills remove frontend --agent claude-code codex --global` |
+| Remove | `DO_NOT_TRACK=1 npx skills remove frontend --agent claude-code codex --global -y` |
 | Turn off the skills CLI telemetry | Keep `DO_NOT_TRACK=1` |
 
 | Dependency | Needed for |
