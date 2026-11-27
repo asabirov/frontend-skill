@@ -62,7 +62,6 @@ Before the first release, each rule was compared with these skills. No rule conf
 | Skill | It covers | This skill |
 | --- | --- | --- |
 | `design` | The look: reflow at narrow widths, visible focus, reduced motion, states to render, design tokens, native controls | How code delivers those results, such as `:focus-visible` and the reduced-motion media query. No tokens or native controls |
-| `backend` | Server modules, API contracts, permission checks | Browser code only |
 | `code-smells` | Code size, complexity, duplication, imports | No size or duplication limit |
 | `agent-browser` | How to drive a browser and take a screenshot | Which page to capture |
 | `run` | How to start the app | A fresh build before a screenshot |
